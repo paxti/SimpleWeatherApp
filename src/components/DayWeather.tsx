@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TextStyle, ViewStyle, StyleSheet} from 'react-native';
 
 export interface DayWeatherType {
   day: string;
@@ -12,23 +12,49 @@ export interface DayWeatherProps {
   data: DayWeatherType;
 }
 
+type Style = {
+  container: ViewStyle;
+  column: ViewStyle;
+  tempratureContainer: ViewStyle;
+  title: TextStyle;
+  icon: TextStyle;
+};
+
 const DayWeather: React.FC<DayWeatherProps> = ({
   data: {day, icon, minTemperature, maxTemperature},
 }) => {
   return (
-    <View>
-      <View>
+    <View style={styles.container}>
+      <View style={styles.column}>
         <Text>{day}</Text>
       </View>
-      <View>
+      <View style={styles.column}>
         <Text>{icon}</Text>
       </View>
-      <View>
-        <Text>{minTemperature}</Text>
-        <Text>{maxTemperature}</Text>
+      <View style={styles.tempratureContainer}>
+        <Text style={styles.column}>{minTemperature}</Text>
+        <Text style={styles.column}>{maxTemperature}</Text>
       </View>
     </View>
   );
 };
 
 export default DayWeather;
+
+const styles: Style = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    marginHorizontal: 20,
+    alignContent: 'space-between',
+  },
+  column: {
+    flex: 1,
+  },
+  tempratureContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignContent: 'space-around',
+  },
+  title: {},
+  icon: {},
+});
