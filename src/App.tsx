@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StyleSheet, ScrollView} from 'react-native';
+import {SafeAreaView, StyleSheet, ScrollView, View} from 'react-native';
 
 import CityOverview from './containers/CityOverview';
 import CityHeader from './containers/CityHeader';
@@ -17,12 +17,8 @@ import CityHeader from './containers/CityHeader';
 const App = () => {
   return (
     <SafeAreaView style={styles.scrollView}>
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={styles.scrollView}>
-        <CityHeader />
-        <CityOverview />
-      </ScrollView>
+      <CityHeader />
+      <CityOverview />
     </SafeAreaView>
   );
 };
