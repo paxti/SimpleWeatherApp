@@ -1,6 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
-import {DayWeatherType} from 'src/components/DayWeather';
+import {DayWeatherType} from '../components/DayWeather';
 import WeekWrapper from '../components/WeekWrapper';
 
 interface Props {}
@@ -27,9 +26,9 @@ class CityOverview extends React.PureComponent<Props, State> {
   render(): JSX.Element {
     const {weatherData} = this.state;
     return (
-      <View>
+      <>
         <WeekWrapper weatherData={weatherData} />
-      </View>
+      </>
     );
   }
 }
